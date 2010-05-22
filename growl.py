@@ -34,9 +34,9 @@ import collections
 import itertools
 import functools
 import inspect
+import codecs
+import rfc822
 from optparse import OptionParser
-
-import yaml
 
 
 def renderTemplate(template, context):
@@ -49,7 +49,6 @@ try:
     jinja2_env = jinja2.Environment()
 
     def renderTemplate(template, context):
-        template = template.decode("utf8")
         return jinja2_env.from_string(template).render(context)
 
     def templateFilter(func):
@@ -121,13 +120,10 @@ class Config(object):
 
 class Template(Config):
     """ abstract template base class providing support for an
-        yaml header, transforming based on file extension,
+        rfc822 header, transforming based on file extension,
         rendering (only using current layout if defined) and
         layouting (applying all layouts).
     """
-
-    RE_YAML = re.compile(r'(^---\s*$(?P<yaml>.*?)^---\s*$)?(?P<content>.*)',
-                         re.M | re.S)
 
     def __init__(self, filename, layouts, context):
         super(Template, self).__init__()
@@ -135,17 +131,17 @@ class Template(Config):
         self.layouts = layouts
         self.context = context.copy()
         self.context.layout = None
-        self.read_yaml()
+        self.read_message()
 
-    def read_yaml(self):
-        """ read yaml header and remove the header from content
+    def read_message(self):
+        """ read MIME headers and remove the headers from content
         """
-        self._content = file(self.filename, 'r').read()
-
-        mo = self.RE_YAML.match(self._content)
-        if mo and mo.groupdict().get('yaml'):
-            self.context.update(yaml.load(mo.groupdict().get('yaml')))
-            self._content = mo.groupdict().get('content')
+        infile = file(self.filename, "rU")
+        msg = rfc822.Message(infile)
+        encoding = msg.get("encoding", "utf-8")
+        self.context.update((k, v.decode(encoding)) for k, v in msg.items())
+        self._content = infile.read().decode(encoding)
+        infile.close()
 
     def transform(self):
         """ do transformation based on filename extension.
