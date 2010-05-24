@@ -407,7 +407,7 @@ class Site(Config):
 
 if __name__ == '__main__':
     DEFAULT_PORT = 8080
-    parser = OptionParser(usage = 'syntax: %prog [options] <from> [to]')
+    parser = OptionParser(usage = 'syntax: %prog [options] [from [to]]')
 
     base = deploy_path = None
     args = sys.argv[1:]
@@ -420,6 +420,9 @@ if __name__ == '__main__':
                 base = arg
         elif arg == '--':
             break
+
+    if not base and not deploy_path:
+        deploy_path = "."
 
     if not base and deploy_path:
         base = deploy_path
