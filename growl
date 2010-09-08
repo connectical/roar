@@ -151,14 +151,14 @@ class Template(Config):
         t = self.transformers.get(ext, lambda x: x)
         return t(self._content)
 
-    def render(self):
+    def render(self, noLayout=False):
         """ render content, so transforming and then
             apply current layout.
         """
         ctx = self.context.copy()
         ctx.content = renderTemplate(self.transform(), ctx)
         layout = self.layouts.get(ctx.layout)
-        if layout:
+        if layout and not noLayout:
             return renderTemplate(layout.content, ctx)
         else:
             return ctx.content
