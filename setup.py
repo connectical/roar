@@ -6,7 +6,7 @@ except ImportError:
 
 setup(
     name         = "roar",
-    version      = "0.1",
+    version      = "0.1.1",
     scripts      = ["roar"],
 
     description  = "Static website generator based on Growl",
