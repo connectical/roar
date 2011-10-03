@@ -2,6 +2,7 @@
 #
 # vim:syntax=python:sw=4:ts=4:expandtab
 #
+# Copyright (C) 2011 Adrian Perez (aperez@connectical.com)
 # Copyright (C) 2009 Rico Schiekel (fire at downgra dot de)
 #
 # This program is free software; you can redistribute it and/or
@@ -19,10 +20,12 @@
 # MA 02110-1301, USA.
 #
 
-__author__ = 'Rico Schiekel <fire@downgra.de>'
-__copyright__ = 'Copyright (C) 2009 Rico Schiekel'
+__author__ = 'Rico Schiekel <fire@downgra.de>' \
+             ', Adrian Perez <aperez@connectical.com>'
+__copyright__ = 'Copyright (C) 2009 Rico Schiekel' \
+                ', 2011 Adrian Perez'
 __license__ = 'GPLv2'
-__version__ = '0.3'
+__version__ = '0.1'
 
 
 import os
@@ -437,9 +440,9 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args(args)
 
     if options.version:
-        print 'growl version %s - %s (%s)' % (__version__,
-                                              __copyright__,
-                                              __license__)
+        print 'roar version %s - %s (%s)' % (__version__,
+                                             __copyright__,
+                                             __license__)
         sys.exit(0)
 
     if not base:

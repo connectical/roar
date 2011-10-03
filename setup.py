@@ -2,7 +2,7 @@
 from distutils.core import setup
 
 setup(
-    name    = "growl",
-    version = "0.3",
-    scripts = ["growl"],
+    name    = "roar",
+    version = "0.1",
+    scripts = ["roar"],
 )

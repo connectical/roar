@@ -30,7 +30,7 @@ import hashlib
 def setup_posts_ui():
 
     def get_editor():
-        editor = os.environ.get('GROWL_EDITOR')
+        editor = os.environ.get('ROAR_EDITOR')
         if not editor:
             editor = os.environ.get('EDITOR')
         if not editor:
@@ -40,7 +40,7 @@ def setup_posts_ui():
     def launch_editor(content = ''):
         fn = None
         try:
-            fid, fn = tempfile.mkstemp('.post', 'growl_', None, True)
+            fid, fn = tempfile.mkstemp('.post', 'roar_', None, True)
             f = open(fn, 'w')
             f.write(content)
             f.close()
@@ -120,7 +120,7 @@ def setup_posts_ui():
                     except KeyboardInterrupt:
                         # save backup to temp file
                         print '\nabort...'
-                        fid, fn = tempfile.mkstemp('.post', 'growl_',
+                        fid, fn = tempfile.mkstemp('.post', 'roar_',
                                                    None, True)
                         f = open(fn, 'w')
                         f.write(content)
