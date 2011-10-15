@@ -25,7 +25,7 @@ __author__ = 'Rico Schiekel <fire@downgra.de>' \
 __copyright__ = 'Copyright (C) 2009 Rico Schiekel' \
                 ', 2011 Adrian Perez'
 __license__ = 'GPLv2'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 
 import os
