@@ -1,0 +1,28 @@
+Source: roar
+Section: utils
+Priority: extra
+Maintainer: Oscar Garcia Amor <ogarcia@connectical.com>
+Build-Depends: debhelper (>= 7), python-all-dev (>= 2.4)
+
+Package: roar
+Architecture: all
+Depends: python (>= 2.4), python-jinja2, ${python:Depends}
+Suggests: python-textile, python-markdown
+Description: Blog-aware, easily-extendable static website generator.
+ Roar is a static website generator, forked from Growl
+ (http://github.com/xfire/growl), which in turn is heavily inspired
+ from Jekyll (http://github.com/mojombo/jekyll), and which shamelessly
+ stole some really cool ideas from Jekyll.
+ .
+ Nevertheless growl brings some nice features:
+ .
+ * Minimal dependencies.
+ * Easy to install (and use? ;])
+ * Easy to extend.
+ .
+ On top, Roar departs from Growl in some aspects:
+ .
+ * Even less dependencies (e.g. Yaml is no longer used)
+ * Packaged for the PyPi
+ * Actively maintained
+ * Packaged for Debian
