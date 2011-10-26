@@ -3,6 +3,8 @@ Section: utils
 Priority: extra
 Maintainer: Oscar Garcia Amor <ogarcia@connectical.com>
 Build-Depends: debhelper (>= 7), python-all-dev (>= 2.4)
+Standards-Version: 3.9.1
+Homepage: http://pypi.python.org/pypi/roar
 
 Package: roar
 Architecture: all
