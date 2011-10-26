@@ -1,11 +1,5 @@
-roar (0.3-2) testing; urgency=low
-
-  * Repacked as roar.
-
- -- Oscar Garcia Amor <ogarcia@connectical.com>  Tue, 25 Oct 2011 17:00:31 +0200
-
-roar (0.3ap1-1) testing; urgency=low
+roar (0.1.2-1) testing; urgency=low
 
   * Initial release.
 
- -- Adrian Perez <aperez@igalia.com>  Mon, 14 Jun 2010 01:26:18 +0200
+ -- Oscar Garcia Amor <ogarcia@connectical.com>  Wed, 26 Oct 2011 10:00:44 +0200
